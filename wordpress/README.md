@@ -1,6 +1,10 @@
 Ayuda
 =====
 
+---
+###### Crear las carpetas "database" y "site"
+---
+
 ## Perfiles para ejecutar
 
 #### default

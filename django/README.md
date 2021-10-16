@@ -1,6 +1,11 @@
 Django
 ======
 
+---
+###### Crear las carpetas "database" y "webapp"
+---
+
+
 #### Pasos
 > docker-compose run web django-admin startproject <django_proyect> webapp
 
