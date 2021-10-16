@@ -30,11 +30,10 @@ services:
       WORDPRESS_DB_PASSWORD: example
 ##############################################################################
   adminer:
-    profiles: ["debug"]
     container_name: "adminer"
     restart: always
     ports:
       - 8080:8080
-    # environment:
-      # ADMINER_DESIGN: flat # https://github.com/vrana/adminer/tree/master/designs
-      # ADMINER_PLUGINS: tables-filter tinymce # https://www.adminer.org/en/plugins/
+    environment:
+      ADMINER_DESIGN: flat # https://github.com/vrana/adminer/tree/master/designs
+      ADMINER_PLUGINS: tables-filter tinymce # https://www.adminer.org/en/plugins/
