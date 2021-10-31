@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_proyect.wsgi.application'
+WSGI_APPLICATION = 'django_proyect.wsgi.application' #Cambiar el nombre "django_proyect" por la carpeta
 
 
 # Database
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'django_proyect.wsgi.application'
 DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
         # CHANGE HERE
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'mydb',
