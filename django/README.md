@@ -7,9 +7,11 @@ Django
 
 
 #### Pasos
-> docker-compose run web django-admin startproject <django_proyect> webapp
+
+> docker-compose run web django-admin startproject <nombre_proyecto> .
 
 #### modificar el archivo de setting.py 
+
 * EDITOR_TXT <django_proyect>/settings.py
 * en ENGINE 
 
@@ -22,8 +24,9 @@ Django
 
 
 ##### Entrar con la terminar interactiva y generar las migracioens necesarias
-> * python manage.py makemigrations
+
 > * python manage.py migrate
+> * python manage.py makemigrations
 > * python manage.py createsuperuser
 
 ***
@@ -42,7 +45,7 @@ Django
 
 #####  Consola interactiva interna
 
-> sudo docker containter exec -it NOMBRE /bin/bash
+> sudo docker exec -it NOMBRE /bin/bash
 
 *** 
 ## FALTA
