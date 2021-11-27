@@ -2,7 +2,7 @@ version: '3'
 
 services:
     db:
-        image: postgres:14.0
+        image: postgres:14.1
         container_name: "postgres-django"
         user: "1000:985"
         volumes:
