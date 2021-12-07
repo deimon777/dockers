@@ -4,7 +4,7 @@ services:
     db:
         image: postgres:14.1
         container_name: "postgres-django"
-        user: "1000:985"
+        user: "1000:1000"
         volumes:
             - ./database:/var/lib/postgresql/data
         environment:
@@ -15,10 +15,14 @@ services:
             - network
 ##############################################################################
     web:
-        build: .
+        build:
+          args:
+            user: deimon
+            uid: 1000
+          context: ./
+          dockerfile: Dockerfile
         container_name: "django-webapp"
         command: python manage.py runserver 0.0.0.0:8000
-        user: "1000:985"
         volumes:
             - ./webapp:/webapp
         ports:
