@@ -1,7 +1,7 @@
-## docker-compose para correr wordpress con una base de datos en mysql
 version: '3.9'
 
 services:
+#MariaDB Service
   db:
     image: mariadb:10.7.1
     container_name: "mariadb"
@@ -18,8 +18,8 @@ services:
       - MARIADB_USER=example
       - MARIADB_PASSWORD=example
     networks:
-      - network
-##############################################################################
+      - mynetwork
+#Wordpress Service
   wordpress:
     image: wordpress:5.8.2-php7.4-apache
     container_name: "wordpress"
@@ -40,8 +40,8 @@ services:
     depends_on:
         - db
     networks:
-      - network
-##############################################################################
+      - mynetwork
+#Adminer Service
   adminer:
     image: adminer:4.8.1
     profiles: ["debug"]
@@ -57,11 +57,11 @@ services:
     depends_on:
         - db
     networks:
-      - network
+      - mynetwork
 ##############################################################################
 volumes:
   database: {}
   site: {}
 
 networks:
-  network:
+  mynetwork:
