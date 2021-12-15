@@ -28,7 +28,8 @@ services:
       - 8000:80
     user: "1000:985"
     volumes:
-      - ./site:/var/www/html
+      - ./site:/var/www/htmlvolumes: 
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_TABLE_PREFIX: wp2_
@@ -42,7 +43,7 @@ services:
     networks:
       - mynetwork
 #Adminer Service
-  adminer:
+  adminer:z
     image: adminer:4.8.1
     profiles: ["debug"]
     container_name: "adminer"
@@ -65,3 +66,5 @@ volumes:
 
 networks:
   mynetwork:
+      name: wordpress-net
+    name: wordpress-net
