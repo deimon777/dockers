@@ -12,7 +12,7 @@ services:
             POSTGRES_USER: example
             POSTGRES_PASSWORD: secret
         networks:
-            - network
+            - mynetwork
 ##############################################################################
     web:
         build:
@@ -32,7 +32,7 @@ services:
         links:
             - db
         networks:
-            - network
+            - mynetwork
 ##############################################################################
     adminer:
         image: adminer:4.8.1
@@ -49,11 +49,12 @@ services:
         links:
             - db
         networks:
-            - network
+            - mynetwork
 
 volumes:
     database: {}
     webapp: {}
 
 networks:
-    network:
+    mynetwork:
+        name: django-net
