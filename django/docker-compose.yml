@@ -13,7 +13,6 @@ services:
             POSTGRES_PASSWORD: secret
         networks:
             - mynetwork
-##############################################################################
     web:
         build:
           args:
@@ -33,7 +32,6 @@ services:
             - db
         networks:
             - mynetwork
-##############################################################################
     adminer:
         image: adminer:4.8.1
         profiles: ["debug"]
@@ -50,11 +48,11 @@ services:
             - db
         networks:
             - mynetwork
-
+##############################################################################
 volumes:
     database: {}
     webapp: {}
-
+##############################################################################
 networks:
     mynetwork:
         name: django-net

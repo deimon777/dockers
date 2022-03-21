@@ -1,0 +1,48 @@
+version: "3.7"
+services:
+    db:
+        image: mariadb:10.7.1
+        container_name: "lamp-mariadb"
+        ports: 
+            - "3306:3306"
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            - MARIADB_SERVERNAME=localhost
+            - MARIADB_DATABASE=lamp
+            - MARIADB_ROOT_PASSWORD=example
+            - MARIADB_USER=example
+            - MARIADB_PASSWORD=example
+        volumes:
+            # - ./dump:/docker-entrypoint-initdb.d
+            - ./conf:/etc/mysql/conf.d
+            - ./database:/var/lib/mysql
+        networks:
+            - lampnetwork
+    web:
+        image: php:7.4-fpm
+        container_name: "lamp-php"
+        ports: 
+            - "80:80"
+        volumes:
+            - ./site:/var/www/html
+        links:
+            - db
+        networks:
+            - lampnetwork
+    adminer:
+        image: adminer:4.8.1
+        profiles: ["debug"]
+        container_name: "lamp-adminer"
+        restart: always
+        ports:
+            - 8000:80
+        links: 
+            - db:mariadb
+        depends_on:
+            - db
+        networks:
+          - lampnetwork
+##############################################################################
+networks:
+    lampnetwork:
+        name: lamp-net

@@ -21,7 +21,7 @@ services:
       - mynetwork
 #Wordpress Service
   wordpress:
-    image: wordpress:5.8.2-php7.4-apache
+    image: wordpress:5.9.0-php7.4-apache
     container_name: "wordpress"
     restart: always
     ports:
