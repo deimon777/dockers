@@ -3,7 +3,7 @@ version: '3.9'
 services:
 #MariaDB Service
   db:
-    image: mariadb:10.7.1
+    image: mariadb:10.8.3
     container_name: "mariadb"
     restart: always
     ports:
@@ -21,7 +21,7 @@ services:
       - mynetwork
 #Wordpress Service
   wordpress:
-    image: wordpress:5.9.0-php7.4-apache
+    image: wordpress:5.9.3-php7.4-apache
     container_name: "wordpress"
     restart: always
     ports:
